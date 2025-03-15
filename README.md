@@ -1,11 +1,26 @@
-# site-blank-page
+# 网站空白页模板
 
+空白网站太单调，所以有了这个项目，让空白页不单调
 
+## 📂 目录结构
 
-> A perfect blank page!!
+```bash
+├── 网站不存在/          # 404相关页面
+│   ├── 信号丢失.html       - 星际主题404页面
+│   └── 银河系著名景点不存在事件.html
+├── 网站正在建设中/      # 维护状态页面
+│   └── index.html
+└── 永久停止服务/        # 服务终止公告
+    └── 永久中止服务.html
+```
 
+## 🛠 使用方法
 
+```bash
+# 克隆仓库
+git clone https://github.com/your-repo/blank-pages.git
 
-Please don't mind add seo plugin like google analyze!!
+# 直接部署到静态服务器即可使用
+```
 
-![cartoon](README.assets/cartoon.gif)
+> 提示：所有页面零依赖，开箱即用（真的不需要npm install 🌱）

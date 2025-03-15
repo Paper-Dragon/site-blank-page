@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>目标失联 - 星际导航失败</title>
+    <style>
+        :root {
+            --space-bg: radial-gradient(ellipse at 50% 30%, #101010 0%, #000 80%);
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: var(--space-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #89B2D3;
+            font-family: 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="%23424242" d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 22c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10z"/><path fill="none" stroke="%23f00" stroke-width="2" d="M10 10l12 12m0-12L10 22"/></svg>'), auto;
+        }
+
+        .void-container {
+            text-align: center;
+            padding: 3rem;
+            border: 2px solid rgba(255,100,100,0.2);
+            border-radius: 15px;
+            background: rgba(0,0,0,0.8);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .error-code {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-family: monospace;
+            opacity: 0.5;
+        }
+
+        .pulse-text {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(137,178,211,0.2); }
+            50% { text-shadow: 0 0 30px rgba(137,178,211,0.5); }
+            100% { text-shadow: 0 0 10px rgba(137,178,211,0.2); }
+        }
+
+        .stardust {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: stardust 6s linear infinite;
+        }
+
+        @keyframes stardust {
+            from { transform: translateY(-100vh) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-code">0xDEADLINK</div>
+
+    <div class="void-container">
+        <svg viewBox="0 0 24 24" width="80" height="80" style="margin: 1rem; opacity:0.8;">
+            <path fill="none" stroke="#89B2D3" stroke-width="2" d="M12 2L2 12l10 10 10-10M4 12h16M12 2v20"/>
+        </svg>
+        <h1 class="pulse-text">███信号丢失████</h1>
+        <p>当前空间坐标未发现有效文明痕迹</p>
+        <div style="margin: 2rem;">
+            <div style="display: inline-block; border: 1px solid rgba(137,178,211,0.3); padding: 0.5rem 2rem;">
+                <p style="margin:0; font-size:0.9em;">建议操作：</p>
+                <p style="margin:0.5rem 0; opacity:0.7;">► 检查超空间航路坐标</p>
+                <p style="margin:0; opacity:0.7;">► 进行量子回溯操作</p>
+            </div>
+        </div>
+        <!-- 动态星空粒子 -->
+        <template id="particle-tpl">
+            <div class="stardust" style="left:var(--x); animation-delay:var(--delay);">
+                <svg width="10" height="10">
+                    <circle cx="5" cy="5" r="2" fill="rgba(137,178,211,0.5)"/>
+                </svg>
+            </div>
+        </template>
+    </div>
+
+    <script>
+        // 生成星空粒子
+        function createStardust() {
+            const container = document.body;
+            for(let i=0; i<50; i++) {
+                const particle = document.getElementById('particle-tpl').content.cloneNode(true);
+                const elem = particle.querySelector('div');
+                elem.style.setProperty('--x', Math.random()*100 + 'vw');
+                elem.style.setProperty('--delay', Math.random()*6 + 's');
+                container.appendChild(particle);
+            }
+        }
+
+        // 坐标异常警告
+        document.body.addEventListener('mousemove', e => {
+            const deviation = Math.abs(e.clientX - window.innerWidth/2) / window.innerWidth * 100;
+            if(deviation > 30) {
+                document.body.style.cursor = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="%23f00" d="M16 1l15 15-15 15L1 16 16 1zm0 8.899L8.899 16 16 23.101 23.101 16 16 8.899zM14 14h4v4h-4v-4z"/></svg>'), auto`;
+            } else {
+                document.body.style.cursor = document.querySelector('style').innerHTML.match(/cursor:\s*(.*?);/)[1];
+            }
+        });
+
+        // 初始化
+        createStardust();
+        
+        // 控制台警告
+        console.log('%c⚠️ 非法导航尝试已被记录 - 错误代码: 0xDEADBEEF', 'color:#f00; font-size:16px;');
+    </script>
+</body>
+</html>

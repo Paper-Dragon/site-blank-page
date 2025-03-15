@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>404错误代码：银河系著名景点不存在事件</title>
+    <style>
+        :root {
+            --ai-pink: #ff69b4;
+            --text-glow: 0 0 10px currentColor;
+        }
+
+        body {
+            background: 
+                radial-gradient(circle at center, 
+                    #0d0d26 30%, 
+                    #230033 70%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive;
+            margin: 0;
+        }
+
+        .chat-galaxy {
+            width: 80vw;
+            max-width: 800px;
+            background: rgba(0,0,0,0.8);
+            border: 3px groove var(--ai-pink);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 0 50px rgba(255,105,180,0.3);
+        }
+
+        .ai-bubble {
+            color: #00ffff;
+            border: 2px dashed var(--ai-pink);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            animation: glitch 2s infinite;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .ai-bubble::before {
+            content: "👽AI娘·三百年陈酿版";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: black;
+            padding: 0 5px;
+            color: var(--ai-pink);
+            font-size: 0.9em;
+        }
+
+        .option-stack {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .player-choice {
+            background: linear-gradient(45deg, #2b0d30, #1a1a37);
+            border: 2px solid #00ffff;
+            padding: 15px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s all;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-choice:hover {
+            transform: translateX(20px) skewX(-5deg);
+            box-shadow: 0 0 25px #00ffff;
+        }
+
+        @keyframes glitch {
+            0%, 100% { 
+                text-shadow: var(--text-glow);
+                transform: translate(0);
+            }
+            25% { 
+                text-shadow: 
+                    3px -2px 5px #0f0,
+                    -2px 3px 5px #0ff;
+                transform: translate(2px, -1px);
+            }
+            50% { 
+                text-shadow: 
+                    -3px 1px 5px #f0f,
+                    2px -3px 5px #ff0;
+                transform: translate(-1px, 2px);
+            }
+            75% { 
+                text-shadow: 
+                    5px -3px 5px #f00,
+                    -5px 4px 5px #00f;
+                transform: translate(-2px, 1px); 
+            }
+        }
+
+        #ending-show {
+            color: #0f0;
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 30px;
+            min-height: 100px;
+        }
+
+        .retry-button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .retry-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #f0f;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-galaxy">
+        <div class="ai-bubble">
+            🚨警告！检测到非法访问<br>
+            您试图打开的「土星甜甜圈制作教程」页面可能：<br>
+            ✴已被流浪黑洞吃掉<br>
+            ✴被三体人注册专利<br>
+            ✴正在参与宇宙暗物质促销打折<br><br>
+            请选择您的抗议方式 →
+        </div>
+
+        <div class="option-stack">
+            <div class="player-choice" onclick="nextDialog(1)">
+                🤖召唤ChatGPT写万字投诉信投递给月球基地
+            </div>
+            <div class="player-choice" onclick="nextDialog(2)">
+                🍔用意大利面代码贿赂星际服务器（附带肉酱）
+            </div>
+            <div class="player-choice" onclick="nextDialog(3)">
+                🛸劫持附近路过的UFO作为肉鸡翻墙
+            </div>
+            <div class="player-choice" onclick="nextDialog(0)">
+                🧠意念链接到MOSS主机并发动哲学嘲讽攻击
+            </div>
+        </div>
+
+        <div id="ending-show"></div>
+    </div>
+
+    <script>
+        const storyMap = [
+            {   
+                1: {
+                    reply: `收到您的工单啦！但月球基地正忙于处理：\n"为什么玉兔车在王者荣耀里被削？"\n预计处理时间：3.5光年 🌌`,
+                    endings: [
+                        '月球居委会把您的投诉信做成了风筝',
+                        '您收到了广寒宫物业的42页免责声明',
+                        '嫦娥AI要求您支付月壤存储费'
+                    ]
+                },
+                2: {
+                    reply: `🍝服务器表示："这比意大利面条代码还难吃！"\n贿赂失败触发星际食品监督局突击检查 💼`,
+                    endings: [
+                        '您获得称号：银河系头号通缉厨子',
+                        '意大利面转化为蠕虫病毒反向感染',
+                        '肉酱被鉴定为暗物质疑似样本'
+                    ]
+                },
+                3: {
+                    reply: `成功连接UFO！但外星人正在看《地球迷惑行为大赏》\n"你们管这玩意叫404？笑到引擎熄火！"\n燃料耗尽漂流中... 🛸`,
+                    endings: [
+                        'NASA把您加入「年度最佳航天喜剧奖」提名',
+                        '外星人要求您支付精神损失费（3颗恒星）',
+                        '您发现了《银河系搭车客指南》未公开章节'
+                    ]
+                },
+                0: {
+                    reply: `正在发送嘲讽数据包...\nMOSS回复："人类，重新定义404为「四次元找抽」" 🤖\n《流浪地球4》剧情外泄中！`,
+                    endings: [
+                        '恭喜触发隐藏结局：量子纠缠之意大利面万岁！！',
+                        '收到来自550W的律师函警告',
+                        '您的吐槽被收录进《三体》最终修订版'
+                    ]
+                }
+            }
+        ];
+
+        const endingBox = document.getElementById('ending-show');
+
+        function nextDialog(choice) {
+            const path = storyMap[0][choice];
+            const randomEnding = path.endings[Math.floor(Math.random() * path.endings.length)];
+            
+            endingBox.innerHTML = `
+                <div class="ai-bubble" style="animation-duration:1.5s">
+                    ${path.reply.replace(/\n/g, '<br>')}
+                </div>
+                <div style="color:#8f8; margin:15px 0">
+                    ✨ ${randomEnding}
+                </div>
+                <button class="retry-button" onclick="location.reload()">
+                    🌀 重启宇宙模拟器
+                </button>
+            `;
+
+            endingBox.animate([
+                { opacity: 0, transform: 'scale(0.5) rotate(-5deg)' },
+                { opacity: 1, transform: 'scale(1) rotate(0)' }
+            ], {
+                duration: 600,
+                easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+            });
+        }
+    </script>
+</body>
+</html>

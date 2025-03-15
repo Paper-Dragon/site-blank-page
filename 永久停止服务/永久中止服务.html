@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>【终止服务】星际站点退役声明</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-family: 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+            filter: grayscale(100%);
+            cursor: not-allowed;
+        }
+
+        .warning-pulse {
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 20px rgba(255,0,0,0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .decommission-alert {
+            text-align: center;
+            padding: 3rem;
+            border: 3px solid #f00;
+            border-radius: 15px;
+            background: rgba(0,0,0,0.9);
+            max-width: 600px;
+            margin: 2rem;
+        }
+
+        .legal-watermark {
+            position: fixed;
+            bottom: 20px;
+            opacity: 0.5;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="decommission-alert">
+        <h1 class="warning-pulse">⚠️ 永久停止服务 ⚠️</h1>
+        <div class="closure-details">
+            <p>根据《星际数字资产管理条例》第42章：</p>
+            <ul style="text-align: left; line-height: 1.8;">
+                <li>服务终止日期：地球历2024年第三新纪元</li>
+                <li>数据已按规范格式化处理</li>
+                <li>域名进入黑洞隔离状态</li>
+            </ul>
+            <hr style="margin: 2rem 0; border-color: #f00;">
+            <p>本系统不再接受任何形式的能量输入</p>
+            <p style="color: #f99;">错误代码：0xDEADSITE</p>
+        </div>
+    </div>
+
+    <div class="legal-watermark">
+        银河联邦数字遗产管理局监制<br>
+        最终解释权归星际议会所有
+    </div>
+
+    <script>
+        // 禁用所有交互
+        document.addEventListener('click', e => {
+            e.preventDefault();
+            const warning = document.createElement('div');
+            warning.textContent = '❌ 交互接口已注销';
+            warning.style = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #f00; font-size: 2em;';
+            document.body.appendChild(warning);
+            setTimeout(() => warning.remove(), 1000);
+        });
+
+        // 自动灰度增强
+        let grayscale = 100;
+        setInterval(() => {
+            if(grayscale < 100) return;
+            document.body.style.filter = `grayscale(${grayscale}%)`;
+            grayscale = Math.min(grayscale + 0.1, 100);
+        }, 1000);
+    </script>
+</body>
+</html>
